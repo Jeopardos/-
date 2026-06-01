@@ -29,7 +29,7 @@
             overflow: hidden;
         }
 
-        /* ===== БЛОК ПРИВЕТСТВИЯ С ФОНОВОЙ КАРТИНКОЙ ===== */
+        /* ===== БЛОК ПРИВЕТСТВИЯ ===== */
         .hero {
             position: relative;
             padding: 80px 20px 50px;
@@ -41,7 +41,6 @@
             background-image: url('https://images.unsplash.com/photo-1511285560929-4b456fe32e46?q=80&w=2070&auto=format');
         }
         
-        /* Затемнение фона */
         .hero::before {
             content: '';
             position: absolute;
@@ -53,20 +52,24 @@
             z-index: 0;
         }
         
-        /* БЕЖЕВЫЙ ФОН ДЛЯ ВСЕГО ТЕКСТА (инициалы, имена, дата, место) */
         .hero-text-wrapper {
             position: relative;
             z-index: 2;
-            display: inline-block;
-            background-color: rgba(245, 235, 220, 0.9); /* Бежевый с прозрачностью */
-            padding: 30px 45px;
-            border-radius: 60px;
-            backdrop-filter: blur(2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            max-width: 90%;
+            display: block;
+            background-color: #f5ebdc;
+            padding: 30px 20px;
+            margin: -50px -20px -50px -20px;
+            border-radius: 0;
+            box-shadow: none;
+            width: calc(100% + 40px);
+            max-width: none;
         }
         
-        /* Инициалы с сердечком */
+        .hero-text-inner {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
         .initials {
             font-size: 1.1rem;
             letter-spacing: 2px;
@@ -104,7 +107,6 @@
             color: #5a3e2e;
         }
         
-        /* Новая картинка после блока приветствия */
         .hero-footer-image {
             width: 100%;
             display: block;
@@ -130,7 +132,103 @@
             border-right: 3px solid #d4a574;
         }
 
-        /* ===== БЛОК РАСПИСАНИЯ С ФОНОВЫМИ КАРТИНКАМИ ===== */
+        /* ===== ОБРАТНЫЙ ОТСЧЕТ ===== */
+        .countdown-section {
+            background: rgba(245, 235, 220, 0.7);
+            border-radius: 28px;
+            padding: 25px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+        
+        .countdown-title {
+            font-size: 1.4rem;
+            color: #b37b48;
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 12px 10px;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #c49a6c;
+            line-height: 1.2;
+            font-family: 'Georgia', monospace;
+        }
+        
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7a5a44;
+            margin-top: 5px;
+        }
+
+        /* ===== НОВЫЙ РАЗДЕЛ ЛОКАЦИЯ ===== */
+        .location-section {
+            background: rgba(245, 235, 220, 0.7);
+            border-radius: 28px;
+            padding: 30px 25px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+        
+        .location-title {
+            font-size: 1.4rem;
+            color: #b37b48;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        
+        .location-address {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #4a3728;
+        }
+        
+        .location-link {
+            display: inline-block;
+            background-color: #c49a6c;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .location-link:hover {
+            background-color: #b0885a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+        
+        /* ===== РАСПИСАНИЕ ===== */
         .details {
             display: flex;
             flex-wrap: wrap;
@@ -195,7 +293,7 @@
             font-size: 1.1rem;
         }
 
-        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОМ ===== */
+        /* ===== ПОДТВЕРЖДЕНИЕ ===== */
         .rsvp-section {
             position: relative;
             border-radius: 24px;
@@ -321,7 +419,7 @@
             display: block;
         }
 
-        /* ===== ФУТЕР С ФОНОМ ===== */
+        /* ===== ФУТЕР ===== */
         footer {
             position: relative;
             text-align: center;
@@ -361,12 +459,19 @@
         }
 
         @media (max-width: 600px) {
-            .hero-text-wrapper { padding: 20px 25px; }
+            .hero-text-wrapper { padding: 20px 15px; }
             .hero h1 { font-size: 1.8rem; }
             .initials { font-size: 0.9rem; }
             .hero .date { font-size: 1rem; }
             .hero .place { font-size: 0.85rem; }
             .content { padding: 25px 20px; }
+            .countdown-item { min-width: 65px; padding: 8px 5px; }
+            .countdown-number { font-size: 1.4rem; }
+            .countdown-label { font-size: 0.6rem; }
+            .countdown-title { font-size: 1.2rem; }
+            .location-title { font-size: 1.2rem; }
+            .location-address { font-size: 1rem; }
+            .location-link { padding: 10px 20px; font-size: 0.9rem; }
             .rsvp-section { padding: 25px 20px; }
             .detail-card { min-width: 150px; padding: 20px 15px; }
             .detail-card h3 { font-size: 1rem; }
@@ -380,15 +485,14 @@
         <!-- ===== БЛОК ПРИВЕТСТВИЯ ===== -->
         <div class="hero">
             <div class="hero-text-wrapper">
-                <!-- ИНИЦИАЛЫ С СЕРДЕЧКОМ -->
-                <div class="initials">
-                    В. <span class="heart">❤️</span> В.
+                <div class="hero-text-inner">
+                    <div class="initials">
+                        В. <span class="heart"> 🖤 </span> В.
+                    </div>
+                    <h1>Валерия & Виталий</h1>
+                    <div class="date">📅 31 июля 2026 года</div>
+                    <div class="place">📍 Royal (зал Emerald), г Липецк, ул Подгоренская, стр 14</div>
                 </div>
-                <!-- ИМЕНА -->
-                <h1>Валерия & Виталий</h1>
-                <!-- ДАТА И МЕСТО -->
-                <div class="date">📅 12 июля 2025 года</div>
-                <div class="place">📍 Ресторан «Аморика», г. Москва</div>
             </div>
         </div>
         
@@ -397,8 +501,49 @@
 
         <div class="content">
             <div class="invitation-text">
-                «Этот день станет началом нашей семейной истории.<br>
-                Мы будем счастливы разделить его с вами»
+«Этот день станет для нас началом новой истории — истории нашей семьи.<br>
+
+Мы очень хотим, чтобы он прошёл в окружении родных и близких людей, с которыми связаны важные воспоминания, тёплые моменты и счастливые события нашей жизни. Пусть в этот день будет место улыбкам, искренним объятиям, душевным разговорам и лёгкому счастью.<br>
+
+Мы будем безмерно рады разделить этот момент с вами.»
+
+            </div>
+
+            <!-- ОБРАТНЫЙ ОТСЧЕТ -->
+            <div class="countdown-section">
+                <div class="countdown-title">💕 До нашей свадьбы осталось 💕</div>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Дней</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Часов</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Минут</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Секунд</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- НОВЫЙ РАЗДЕЛ ЛОКАЦИЯ -->
+            <div class="location-section">
+                <div class="location-title">📍 Локация 📍</div>
+                <div class="location-address">
+                    Адрес и схема проезда — мы будем ждать вас здесь
+                </div>
+                <a href="https://yandex.ru/maps/?text=Липецк, ул. Подгоренская, д.14" 
+                   class="location-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    📍 Royal (зал Emerald), г Липецк, ул Подгоренская, стр 14
+                </a>
             </div>
 
             <!-- РАСПИСАНИЕ -->
@@ -439,6 +584,12 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
+                            <option value="5">4</option>
+                            <option value="6">4</option>
+                            <option value="7">4</option>
+                            <option value="8">4</option>
+                            <option value="9">4</option>
+                            <option value="10">4</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -459,6 +610,34 @@
     </div>
 
     <script>
+        // ОБРАТНЫЙ ОТСЧЕТ ДО 12 ИЮЛЯ 2025
+        function updateCountdown() {
+            const weddingDate = new Date(2025, 6, 12, 0, 0, 0);
+            const now = new Date();
+            const diff = weddingDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (86400000)) / (3600000));
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            
+            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
         // ⚠️ ЗАМЕНИТЕ НА ВАШ URL ИЗ GOOGLE APPS SCRIPT
         const GOOGLE_SCRIPT_URL = 'ВАШ_ВЕБ_АПП_АДРЕС';
 

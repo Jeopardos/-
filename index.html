@@ -592,10 +592,6 @@
                             <option value="10">4</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Пожелания / комментарий</label>
-                        <input type="text" id="comment" placeholder="Аллергии, особые пожелания...">
-                    </div>
                     <button type="submit">Отправить подтверждение</button>
                 </form>
                 <div id="message"></div>
@@ -639,7 +635,7 @@
         updateCountdown();
         
         // ⚠️ ЗАМЕНИТЕ НА ВАШ URL ИЗ GOOGLE APPS SCRIPT
-        const GOOGLE_SCRIPT_URL = 'ВАШ_ВЕБ_АПП_АДРЕС';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGqGIO2CFlHdS2yTZzYKKxe2zkxuTORt5V6WnDXHl6GHpHCrncJxcczG29JKe3HtkG/exec';
 
         const form = document.getElementById('rsvpForm');
         const messageDiv = document.getElementById('message');

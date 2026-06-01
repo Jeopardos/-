@@ -32,17 +32,16 @@
         /* ===== БЛОК ПРИВЕТСТВИЯ С ФОНОВОЙ КАРТИНКОЙ ===== */
         .hero {
             position: relative;
-            padding: 80px 20px 70px;
+            padding: 80px 20px 50px;
             text-align: center;
             color: white;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* Фоновая картинка — ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ */
-            background-image: url('https://lh3.googleusercontent.com/26NqaG8sfAEDamgkNRrpwGUB2YxdmewV9sebDg7IqKH1R_y0lIjbdRSjT3fdbB7YicV9XMhlI1ZL1aVD0Jd6eecR5uyMKmXfiisYug=w1200-h800-l90-e30');
+            background-image: url('https://images.unsplash.com/photo-1511285560929-4b456fe32e46?q=80&w=2070&auto=format');
         }
         
-        /* Затемнение фона, чтобы текст был читаемым */
+        /* Затемнение фона */
         .hero::before {
             content: '';
             position: absolute;
@@ -54,27 +53,64 @@
             z-index: 0;
         }
         
-        .hero h1, .hero .date, .hero .place {
+        /* БЕЖЕВЫЙ ФОН ДЛЯ ВСЕГО ТЕКСТА (инициалы, имена, дата, место) */
+        .hero-text-wrapper {
             position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            z-index: 2;
+            display: inline-block;
+            background-color: rgba(245, 235, 220, 0.9); /* Бежевый с прозрачностью */
+            padding: 30px 45px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            max-width: 90%;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: normal;
-        }
-
-        .hero .date {
-            font-size: 1.3rem;
-            margin-top: 20px;
-        }
-
-        .hero .place {
+        
+        /* Инициалы с сердечком */
+        .initials {
             font-size: 1.1rem;
-            margin-top: 8px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: #b37b48;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        
+        .heart {
+            color: #e08e6d;
+            font-size: 1.2rem;
+            margin: 0 6px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            color: #4a3728;
+            text-shadow: none;
+        }
+        
+        .hero .date {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #4a3728;
+            font-weight: 500;
+        }
+        
+        .hero .place {
+            font-size: 1rem;
+            margin-top: 6px;
+            color: #5a3e2e;
+        }
+        
+        /* Новая картинка после блока приветствия */
+        .hero-footer-image {
+            width: 100%;
+            display: block;
+            margin-top: 0;
+            object-fit: cover;
+            max-height: 300px;
         }
 
         .content {
@@ -118,7 +154,6 @@
             transition: transform 0.3s;
         }
         
-        /* Затемнение для карточек расписания */
         .detail-card::before {
             content: '';
             position: absolute;
@@ -140,15 +175,14 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
         
-        /* Индивидуальные фоны для каждой карточки */
         .detail-card:nth-child(1) {
-            background-image: url('https://your-site.com/time-bg.jpg');
+            background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1968&auto=format');
         }
         .detail-card:nth-child(2) {
-            background-image: url('https://your-site.com/ceremony-bg.jpg');
+            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format');
         }
         .detail-card:nth-child(3) {
-            background-image: url('https://your-site.com/banquet-bg.jpg');
+            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format');
         }
 
         .detail-card h3 {
@@ -161,7 +195,7 @@
             font-size: 1.1rem;
         }
 
-        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОВОЙ КАРТИНКОЙ ===== */
+        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОМ ===== */
         .rsvp-section {
             position: relative;
             border-radius: 24px;
@@ -170,11 +204,9 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* Фоновая картинка для блока подтверждения */
-            background-image: url('https://your-site.com/rsvp-bg.jpg');
+            background-image: url('https://images.unsplash.com/photo-1464366400600-1a5bbfec8f2f?q=80&w=2070&auto=format');
         }
         
-        /* Затемнение для блока подтверждения */
         .rsvp-section::before {
             content: '';
             position: absolute;
@@ -187,7 +219,7 @@
             z-index: 0;
         }
         
-        .rsvp-section h2, .rsvp-section form, .rsvp-section .rsvp-image {
+        .rsvp-section h2, .rsvp-section form {
             position: relative;
             z-index: 1;
         }
@@ -289,7 +321,7 @@
             display: block;
         }
 
-        /* ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) С ФОНОВОЙ КАРТИНКОЙ ===== */
+        /* ===== ФУТЕР С ФОНОМ ===== */
         footer {
             position: relative;
             text-align: center;
@@ -297,7 +329,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-image: url('https://your-site.com/footer-bg.jpg');
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format');
             color: white;
         }
         
@@ -308,7 +340,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 0;
         }
         
@@ -329,7 +361,11 @@
         }
 
         @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
+            .hero-text-wrapper { padding: 20px 25px; }
+            .hero h1 { font-size: 1.8rem; }
+            .initials { font-size: 0.9rem; }
+            .hero .date { font-size: 1rem; }
+            .hero .place { font-size: 0.85rem; }
             .content { padding: 25px 20px; }
             .rsvp-section { padding: 25px 20px; }
             .detail-card { min-width: 150px; padding: 20px 15px; }
@@ -341,21 +377,31 @@
 <body>
     <div class="container">
         
-        <!-- ===== БЛОК ПРИВЕТСТВИЯ С ФОНОМ ===== -->
+        <!-- ===== БЛОК ПРИВЕТСТВИЯ ===== -->
         <div class="hero">
-            <h1>Валерия & Виталий</h1>
-            <div class="date">📅 31 июля 2026 года</div>
-            <div class="place">📍 Ресторан «Аморика», г. Москва</div>
+            <div class="hero-text-wrapper">
+                <!-- ИНИЦИАЛЫ С СЕРДЕЧКОМ -->
+                <div class="initials">
+                    В. <span class="heart">❤️</span> В.
+                </div>
+                <!-- ИМЕНА -->
+                <h1>Валерия & Виталий</h1>
+                <!-- ДАТА И МЕСТО -->
+                <div class="date">📅 12 июля 2025 года</div>
+                <div class="place">📍 Ресторан «Аморика», г. Москва</div>
+            </div>
         </div>
+        
+        <!-- КАРТИНКА ИЗ GOOGLE -->
+        <img class="hero-footer-image" src="https://lh3.googleusercontent.com/26NqaG8sfAEDamgkNRrpwGUB2YxdmewV9sebDg7IqKH1R_y0lIjbdRSjT3fdbB7YicV9XMhlI1ZL1aVD0Jd6eecR5uyMKmXfiisYug=w1200-h800-l90-e30" alt="Свадебная иллюстрация">
 
         <div class="content">
             <div class="invitation-text">
-«Этот день станет для нас началом новой истории — истории нашей семьи.<br>
-Мы очень хотим, чтобы он прошёл в окружении родных и близких людей, с которыми связаны важные воспоминания, тёплые моменты и счастливые события нашей жизни. Пусть в этот день будет место улыбкам, искренним объятиям, душевным разговорам и лёгкому счастью.<br>
-Мы будем безмерно рады разделить этот момент с вами.»
+                «Этот день станет началом нашей семейной истории.<br>
+                Мы будем счастливы разделить его с вами»
             </div>
 
-            <!-- ===== БЛОК РАСПИСАНИЯ С ФОНАМИ ===== -->
+            <!-- РАСПИСАНИЕ -->
             <div class="details">
                 <div class="detail-card">
                     <h3>Сбор гостей</h3>
@@ -371,7 +417,7 @@
                 </div>
             </div>
 
-            <!-- ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОМ ===== -->
+            <!-- ПОДТВЕРЖДЕНИЕ -->
             <div class="rsvp-section">
                 <h2>✨ Подтвердите присутствие ✨</h2>
                 <form id="rsvpForm">
@@ -405,7 +451,7 @@
             </div>
         </div>
 
-        <!-- ===== ЗАВЕРШАЮЩИЙ БЛОК С ФОНОМ ===== -->
+        <!-- ФУТЕР -->
         <footer>
             <p>С нетерпением ждём встречи!</p>
             <p>По вопросам: +7 (999) 123-45-67</p>

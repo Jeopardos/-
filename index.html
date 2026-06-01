@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Приглашение на свадьбу | Валерия & Виталий</title>
     <style>
         * {
@@ -25,16 +25,45 @@
             margin: 0 auto;
             background: white;
             border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 5px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             overflow: hidden;
         }
 
-        /* Hero секция */
+        /* ===== БЛОК ПРИВЕТСТВИЯ С КАРТИНКОЙ ===== */
         .hero {
             background: linear-gradient(135deg, #d4a574 0%, #c49a6c 100%);
             padding: 60px 20px 50px;
             text-align: center;
             color: white;
+            position: relative;
+        }
+
+        /* Картинка в блоке приветствия (фоновая или отдельная) */
+        .hero-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Либо фоновая картинка для всего блока */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero h1, .hero .date, .hero .place {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -42,22 +71,18 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
             font-weight: normal;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero .date {
             font-size: 1.3rem;
             margin-top: 20px;
-            opacity: 0.95;
         }
 
         .hero .place {
             font-size: 1.1rem;
             margin-top: 8px;
-            opacity: 0.9;
         }
 
-        /* Основной контент */
         .content {
             padding: 40px 30px;
         }
@@ -68,13 +93,14 @@
             margin-bottom: 40px;
             font-style: italic;
             color: #5a3e2e;
+            background: #fefaf5;
+            padding: 20px;
+            border-radius: 16px;
             border-left: 3px solid #d4a574;
             border-right: 3px solid #d4a574;
-            padding: 20px;
-            background: #fefaf5;
-            border-radius: 16px;
         }
 
+        /* ===== БЛОК РАСПИСАНИЯ С КАРТИНКАМИ ===== */
         .details {
             display: flex;
             flex-wrap: wrap;
@@ -91,8 +117,23 @@
             border-radius: 20px;
             text-align: center;
             border: 1px solid #f0e0d0;
+            transition: transform 0.3s;
         }
 
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Картинка внутри карточки расписания */
+        .detail-card-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+
+        /* Или эмодзи, если картинки нет */
         .detail-card .emoji {
             font-size: 2rem;
             margin-bottom: 10px;
@@ -108,7 +149,7 @@
             font-size: 0.95rem;
         }
 
-        /* Форма подтверждения */
+        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ ===== */
         .rsvp-section {
             background: #fefaf5;
             border-radius: 24px;
@@ -125,6 +166,14 @@
             font-weight: normal;
         }
 
+        /* Картинка в блоке подтверждения */
+        .rsvp-image {
+            display: block;
+            width: 150px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -133,7 +182,6 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #4a3728;
         }
 
         input, select {
@@ -143,7 +191,6 @@
             border-radius: 12px;
             font-size: 1rem;
             font-family: inherit;
-            transition: all 0.3s;
             background: white;
         }
 
@@ -185,17 +232,11 @@
             font-family: inherit;
             transition: all 0.3s;
             margin-top: 10px;
-            font-weight: 500;
         }
 
         button:hover {
             background: #b0885a;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(196,154,108,0.3);
-        }
-
-        button:active {
-            transform: translateY(0);
         }
 
         .message {
@@ -218,13 +259,24 @@
             display: block;
         }
 
+        /* ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) ===== */
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #aaa;
-            border-top: 1px solid #f0e0d0;
+            padding: 30px 20px;
             background: white;
+            border-top: 1px solid #f0e0d0;
+        }
+
+        /* Картинка в футере */
+        .footer-img {
+            width: 80px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        footer p {
+            color: #aaa;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 600px) {
@@ -236,40 +288,54 @@
 </head>
 <body>
     <div class="container">
+        
+        <!-- ===== БЛОК ПРИВЕТСТВИЯ ===== -->
         <div class="hero">
+            <!-- Вариант 1: отдельная картинка сверху -->
+            <img class="hero-image" src="https://assets.pinterest.com/ext/embed.html?id=1548181186246802" alt="Валерия и Виталий">
+            
+            <!-- Вариант 2: фоновая картинка (раскомментируйте, если нужно) -->
+            <!-- <img class="hero-bg-image" src="https://your-site.com/background.jpg" alt="фон"> -->
+            
             <h1>Валерия & Виталий</h1>
             <div class="date">📅 31 июля 2026 года</div>
-            <div class="place">📍 Рестон «Аморика», г. Москва</div>
+            <div class="place">📍 Ресторан «Аморика», г. Москва</div>
         </div>
 
         <div class="content">
             <div class="invitation-text">
-«Этот день станет для нас началом новой истории — истории нашей семьи.
+«Этот день станет для нас началом новой истории — истории нашей семьи.<br>
 
-Мы очень хотим, чтобы он прошёл в окружении родных и близких людей, с которыми связаны важные воспоминания, тёплые моменты и счастливые события нашей жизни. Пусть в этот день будет место улыбкам, искренним объятиям, душевным разговорам и лёгкому счастью.
+Мы очень хотим, чтобы он прошёл в окружении родных и близких людей, с которыми связаны важные воспоминания, тёплые моменты и счастливые события нашей жизни. Пусть в этот день будет место улыбкам, искренним объятиям, душевным разговорам и лёгкому счастью.<br>
 
 Мы будем безмерно рады разделить этот момент с вами.»
+
             </div>
 
+            <!-- ===== БЛОК РАСПИСАНИЯ ===== -->
             <div class="details">
                 <div class="detail-card">
-                    <div class="emoji">⏰</div>
+                    <!-- Вставьте свою картинку вместо эмодзи -->
+                    <img class="detail-card-img" src="https://your-site.com/clock-icon.jpg" alt="Время">
+                    <!-- <div class="emoji">⏰</div>  закомментировали эмодзи -->
                     <h3>Сбор гостей</h3>
                     <p>16:30</p>
                 </div>
                 <div class="detail-card">
-                    <div class="emoji">💒</div>
-                    <h3>Торжественная церемония</h3>
+                    <img class="detail-card-img" src="https://your-site.com/ring-icon.jpg" alt="Церемония">
+                    <h3>Церемония</h3>
                     <p>17:00</p>
                 </div>
                 <div class="detail-card">
-                    <div class="emoji">🍾</div>
+                    <img class="detail-card-img" src="https://your-site.com/party-icon.jpg" alt="Банкет">
                     <h3>Банкет</h3>
                     <p>18:00 – 23:00</p>
                 </div>
             </div>
 
+            <!-- ===== БЛОК ПОДТВЕРЖДЕНИЯ ===== -->
             <div class="rsvp-section">
+                <img class="rsvp-image" src="https://your-site.com/heart-icon.jpg" alt="Сердце">
                 <h2>✨ Подтвердите присутствие ✨</h2>
                 <form id="rsvpForm">
                     <div class="form-group">
@@ -286,50 +352,45 @@
                     <div class="form-group">
                         <label>Количество гостей (включая вас)</label>
                         <select id="guests">
-                            <option value="1">1 гость</option>
-                            <option value="2">2 гостя</option>
-                            <option value="3">3 гостя</option>
-                            <option value="4">4 гостя</option>
-                            <option value="4">5 гостя</option>
-                            <option value="4">6 гостя</option>
-                            <option value="4">7 гостя</option>
-                            <option value="4">8 гостя</option>
-                            <option value="4">9 гостя</option>
-                            <option value="4">10 гостя</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Пожелания / комментарий</label>
-                        <input type="text" id="comment" placeholder="Например: аллергия на цитрусовые">
+                        <input type="text" id="comment" placeholder="Аллергии, особые пожелания...">
                     </div>
                     <button type="submit">Отправить подтверждение</button>
                 </form>
                 <div id="message"></div>
             </div>
         </div>
+
+        <!-- ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) ===== -->
         <footer>
-            С нетерпением ждём встречи!<br>
-            По всем вопросам: +7 (999) 123-45-67
+            <img class="footer-img" src="https://your-site.com/footer-decoration.jpg" alt="Цветы">
+            <p>С нетерпением ждём встречи!</p>
+            <p>По вопросам: +7 (999) 123-45-67</p>
         </footer>
     </div>
 
     <script>
-        // КОНФИГУРАЦИЯ — ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ ПОСЛЕ СОЗДАНИЯ ТАБЛИЦЫ
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGqGIO2CFlHdS2yTZzYKKxe2zkxuTORt5V6WnDXHl6GHpHCrncJxcczG29JKe3HtkG/exec';  // СЮДА ВСТАВИТЬ ССЫЛКУ ИЗ ПУНКТА 5
-        
+        // ⚠️ ЗАМЕНИТЕ НА ВАШ URL ИЗ GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = 'ВАШ_ВЕБ_АПП_АДРЕС';
+
         const form = document.getElementById('rsvpForm');
         const messageDiv = document.getElementById('message');
-        
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Собираем данные
+
             const name = document.getElementById('name').value.trim();
             const attending = document.querySelector('input[name="attending"]:checked');
             const guests = document.getElementById('guests').value;
             const comment = document.getElementById('comment').value.trim();
-            
-            // Валидация
+
             if (!name) {
                 showMessage('Пожалуйста, укажите ваше имя', 'error');
                 return;
@@ -338,43 +399,33 @@
                 showMessage('Пожалуйста, укажите, сможете ли вы быть', 'error');
                 return;
             }
-            
-            // Подготовка данных для отправки
+
             const formData = {
                 name: name,
                 attending: attending.value,
                 guests: guests,
                 comment: comment,
-                timestamp: new Date().toLocaleString('ru-RU'),
-                phone: navigator.userAgent || 'Не определено'
+                timestamp: new Date().toLocaleString('ru-RU')
             };
-            
-            // Отправка в Google Таблицу
+
             try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Важно для Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
-                
-                // При mode: 'no-cors' мы не можем прочитать ответ
-                // Поэтому считаем, что всё ок, если нет ошибки сети
+
                 showMessage('✅ Спасибо! Ваше подтверждение отправлено.', 'success');
                 form.reset();
-                
-                // Опционально: очистить радиокнопки
-                document.querySelectorAll('input[name="attending"]').forEach(radio => radio.checked = false);
+                document.querySelectorAll('input[name="attending"]').forEach(r => r.checked = false);
                 document.getElementById('guests').value = '1';
-                
+
             } catch (error) {
-                console.error('Ошибка:', error);
-                showMessage('❌ Произошла ошибка. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую.', 'error');
+                showMessage('❌ Ошибка. Попробуйте ещё раз или свяжитесь с нами.', 'error');
             }
         });
-        
+
         function showMessage(text, type) {
             messageDiv.textContent = text;
             messageDiv.className = `message ${type}`;

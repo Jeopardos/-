@@ -29,41 +29,35 @@
             overflow: hidden;
         }
 
-        /* ===== БЛОК ПРИВЕТСТВИЯ С КАРТИНКОЙ ===== */
+        /* ===== БЛОК ПРИВЕТСТВИЯ С ФОНОВОЙ КАРТИНКОЙ ===== */
         .hero {
-            background: linear-gradient(135deg, #d4a574 0%, #c49a6c 100%);
-            padding: 60px 20px 50px;
+            position: relative;
+            padding: 80px 20px 70px;
             text-align: center;
             color: white;
-            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Фоновая картинка — ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ */
+            background-image: url('https://your-site.com/hero-background.jpg');
         }
-
-        /* Картинка в блоке приветствия (фоновая или отдельная) */
-        .hero-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Либо фоновая картинка для всего блока */
-        .hero-bg-image {
+        
+        /* Затемнение фона, чтобы текст был читаемым */
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
+            background: rgba(0, 0, 0, 0.35);
             z-index: 0;
         }
-
+        
         .hero h1, .hero .date, .hero .place {
             position: relative;
             z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
         .hero h1 {
@@ -100,7 +94,7 @@
             border-right: 3px solid #d4a574;
         }
 
-        /* ===== БЛОК РАСПИСАНИЯ С КАРТИНКАМИ ===== */
+        /* ===== БЛОК РАСПИСАНИЯ С ФОНОВЫМИ КАРТИНКАМИ ===== */
         .details {
             display: flex;
             flex-wrap: wrap;
@@ -112,50 +106,90 @@
         .detail-card {
             flex: 1;
             min-width: 200px;
-            background: #fefaf5;
-            padding: 20px;
+            position: relative;
+            padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid #f0e0d0;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
             transition: transform 0.3s;
         }
-
+        
+        /* Затемнение для карточек расписания */
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 0;
+        }
+        
         .detail-card:hover {
             transform: translateY(-5px);
         }
-
-        /* Картинка внутри карточки расписания */
-        .detail-card-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 12px;
+        
+        .detail-card h3, .detail-card p {
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
-
-        /* Или эмодзи, если картинки нет */
-        .detail-card .emoji {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        
+        /* Индивидуальные фоны для каждой карточки */
+        .detail-card:nth-child(1) {
+            background-image: url('https://your-site.com/time-bg.jpg');
+        }
+        .detail-card:nth-child(2) {
+            background-image: url('https://your-site.com/ceremony-bg.jpg');
+        }
+        .detail-card:nth-child(3) {
+            background-image: url('https://your-site.com/banquet-bg.jpg');
         }
 
         .detail-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #c49a6c;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
         }
 
         .detail-card p {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
         }
 
-        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ ===== */
+        /* ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОВОЙ КАРТИНКОЙ ===== */
         .rsvp-section {
-            background: #fefaf5;
+            position: relative;
             border-radius: 24px;
-            padding: 30px;
+            padding: 40px 30px;
             margin-top: 20px;
-            border: 1px solid #f0e0d0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Фоновая картинка для блока подтверждения */
+            background-image: url('https://your-site.com/rsvp-bg.jpg');
+        }
+        
+        /* Затемнение для блока подтверждения */
+        .rsvp-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 250, 240, 0.88);
+            border-radius: 24px;
+            z-index: 0;
+        }
+        
+        .rsvp-section h2, .rsvp-section form, .rsvp-section .rsvp-image {
+            position: relative;
+            z-index: 1;
         }
 
         .rsvp-section h2 {
@@ -166,14 +200,6 @@
             font-weight: normal;
         }
 
-        /* Картинка в блоке подтверждения */
-        .rsvp-image {
-            display: block;
-            width: 150px;
-            margin: 0 auto 20px;
-            border-radius: 20px;
-        }
-
         .form-group {
             margin-bottom: 20px;
         }
@@ -182,6 +208,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: #4a3728;
         }
 
         input, select {
@@ -213,6 +240,9 @@
             gap: 8px;
             font-weight: normal;
             cursor: pointer;
+            background: rgba(255,255,255,0.7);
+            padding: 5px 12px;
+            border-radius: 30px;
         }
 
         .radio-group input {
@@ -248,55 +278,71 @@
         }
 
         .message.success {
-            background: #e8f5e9;
-            color: #2e7d32;
+            background: rgba(46,125,50,0.9);
+            color: white;
             display: block;
         }
 
         .message.error {
-            background: #ffebee;
-            color: #c62828;
+            background: rgba(198,40,40,0.9);
+            color: white;
             display: block;
         }
 
-        /* ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) ===== */
+        /* ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) С ФОНОВОЙ КАРТИНКОЙ ===== */
         footer {
+            position: relative;
             text-align: center;
-            padding: 30px 20px;
-            background: white;
-            border-top: 1px solid #f0e0d0;
+            padding: 40px 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('https://your-site.com/footer-bg.jpg');
+            color: white;
         }
-
-        /* Картинка в футере */
-        .footer-img {
-            width: 80px;
-            margin-bottom: 15px;
-            opacity: 0.8;
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
         }
-
+        
         footer p {
-            color: #aaa;
-            font-size: 0.8rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        footer p:first-of-type {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        footer p:last-of-type {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2rem; }
             .content { padding: 25px 20px; }
-            .rsvp-section { padding: 20px; }
+            .rsvp-section { padding: 25px 20px; }
+            .detail-card { min-width: 150px; padding: 20px 15px; }
+            .detail-card h3 { font-size: 1rem; }
+            .detail-card p { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         
-        <!-- ===== БЛОК ПРИВЕТСТВИЯ ===== -->
+        <!-- ===== БЛОК ПРИВЕТСТВИЯ С ФОНОМ ===== -->
         <div class="hero">
-            <!-- Вариант 1: отдельная картинка сверху -->
-            <img class="hero-image" src="https://lh3.googleusercontent.com/26NqaG8sfAEDamgkNRrpwGUB2YxdmewV9sebDg7IqKH1R_y0lIjbdRSjT3fdbB7YicV9XMhlI1ZL1aVD0Jd6eecR5uyMKmXfiisYug=w1200-h800-l90-e30" alt="Валерия и Виталий">
-            
-            <!-- Вариант 2: фоновая картинка (раскомментируйте, если нужно) -->
-            <!-- <img class="hero-bg-image" src="https://your-site.com/background.jpg" alt="фон"> -->
-            
             <h1>Валерия & Виталий</h1>
             <div class="date">📅 31 июля 2026 года</div>
             <div class="place">📍 Ресторан «Аморика», г. Москва</div>
@@ -305,37 +351,28 @@
         <div class="content">
             <div class="invitation-text">
 «Этот день станет для нас началом новой истории — истории нашей семьи.<br>
-
 Мы очень хотим, чтобы он прошёл в окружении родных и близких людей, с которыми связаны важные воспоминания, тёплые моменты и счастливые события нашей жизни. Пусть в этот день будет место улыбкам, искренним объятиям, душевным разговорам и лёгкому счастью.<br>
-
 Мы будем безмерно рады разделить этот момент с вами.»
-
             </div>
 
-            <!-- ===== БЛОК РАСПИСАНИЯ ===== -->
+            <!-- ===== БЛОК РАСПИСАНИЯ С ФОНАМИ ===== -->
             <div class="details">
                 <div class="detail-card">
-                    <!-- Вставьте свою картинку вместо эмодзи -->
-                    <img class="detail-card-img" src="https://your-site.com/clock-icon.jpg" alt="Время">
-                    <!-- <div class="emoji">⏰</div>  закомментировали эмодзи -->
                     <h3>Сбор гостей</h3>
                     <p>16:30</p>
                 </div>
                 <div class="detail-card">
-                    <img class="detail-card-img" src="https://your-site.com/ring-icon.jpg" alt="Церемония">
                     <h3>Церемония</h3>
                     <p>17:00</p>
                 </div>
                 <div class="detail-card">
-                    <img class="detail-card-img" src="https://your-site.com/party-icon.jpg" alt="Банкет">
                     <h3>Банкет</h3>
                     <p>18:00 – 23:00</p>
                 </div>
             </div>
 
-            <!-- ===== БЛОК ПОДТВЕРЖДЕНИЯ ===== -->
+            <!-- ===== БЛОК ПОДТВЕРЖДЕНИЯ С ФОНОМ ===== -->
             <div class="rsvp-section">
-                <img class="rsvp-image" src="https://your-site.com/heart-icon.jpg" alt="Сердце">
                 <h2>✨ Подтвердите присутствие ✨</h2>
                 <form id="rsvpForm">
                     <div class="form-group">
@@ -368,9 +405,8 @@
             </div>
         </div>
 
-        <!-- ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) ===== -->
+        <!-- ===== ЗАВЕРШАЮЩИЙ БЛОК С ФОНОМ ===== -->
         <footer>
-            <img class="footer-img" src="https://your-site.com/footer-decoration.jpg" alt="Цветы">
             <p>С нетерпением ждём встречи!</p>
             <p>По вопросам: +7 (999) 123-45-67</p>
         </footer>

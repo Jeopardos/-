@@ -563,7 +563,9 @@
             </div>
 
             <!-- ПОДТВЕРЖДЕНИЕ -->
+            <!-- ===== БЛОК ПОДТВЕРЖДЕНИЯ ===== -->
             <div class="rsvp-section">
+                <img class="rsvp-image" src="https://your-site.com/heart-icon.jpg" alt="Сердце">
                 <h2>✨ Подтвердите присутствие ✨</h2>
                 <form id="rsvpForm">
                     <div class="form-group">
@@ -584,13 +586,11 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Пожелания / комментарий</label>
+                        <input type="text" id="comment" placeholder="Аллергии, особые пожелания...">
                     </div>
                     <button type="submit">Отправить подтверждение</button>
                 </form>
@@ -598,46 +598,18 @@
             </div>
         </div>
 
-        <!-- ФУТЕР -->
+        <!-- ===== ЗАВЕРШАЮЩИЙ БЛОК (ФУТЕР) ===== -->
         <footer>
-            <p>Спасибо, что вы с нами!</p>
-            <p>По вопросам: +7 (999) 219-99-19</p>
+            <img class="footer-img" src="https://your-site.com/footer-decoration.jpg" alt="Цветы">
+            <p>С нетерпением ждём встречи!</p>
+            <p>По вопросам: +7 (999) 123-45-67</p>
         </footer>
     </div>
 
     <script>
-        // ОБРАТНЫЙ ОТСЧЕТ ДО 12 ИЮЛЯ 2025
-        function updateCountdown() {
-            const weddingDate = new Date(2026, 7, 31, 15, 30, 0);
-            const now = new Date();
-            const diff = weddingDate - now;
-            
-            if (diff <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                return;
-            }
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (86400000)) / (3600000));
-            const minutes = Math.floor((diff % 3600000) / 60000);
-            const seconds = Math.floor((diff % 60000) / 1000);
-            
-            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
         // ⚠️ ЗАМЕНИТЕ НА ВАШ URL ИЗ GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5KmnzQjYV0vEWYzF70qiv0Y7jvPrJT8CgbvHHfYqrD3F3Hw8phVCYcSVnYJJmfNAc/exec';
 
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5KmnzQjYV0vEWYzF70qiv0Y7jvPrJT8CgbvHHfYqrD3F3Hw8phVCYcSVnYJJmfNAc/exec';
- 
         const form = document.getElementById('rsvpForm');
         const messageDiv = document.getElementById('message');
 
